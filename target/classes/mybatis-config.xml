@@ -28,9 +28,12 @@
         </environment>
     </environments>
     <mappers>
-        <!-- 按照文件一个一个导入-->
+<!--        按照文件一个一个导入-->
 <!--        <mapper resource="Mapper/PersonMapper.xml"/>-->
-        <!-- 按照包进行导入:映射文件所在的包名和Mapper接口所在的包名要一致-->
+
+<!--        按照包进行导入:-->
+<!--        映射文件所在的包名和Mapper接口所在的包名要一致-->
+<!--        映射文件名和Mapper接口名要一致-->
         <package name="Mapper"/>
     </mappers>
 </configuration>

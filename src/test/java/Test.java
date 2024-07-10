@@ -4,6 +4,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import utils.SqlSessionUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,5 +55,29 @@ public class Test {
 
         System.out.println(person);
 
+    }
+
+    @org.junit.Test
+    public void TestParameter(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
+        Person person = mapper.getPersonById(2);
+        System.out.println(person);
+    }
+
+    @org.junit.Test
+    public void TestParameters(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
+        Person person = mapper.checkLogin("lili",0);
+        System.out.println(person);
+    }
+
+    @org.junit.Test
+    public void TestParameterWithParam(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
+        Integer count= mapper.updatePerson("lili");
+        System.out.println(count);
     }
 }

@@ -8,8 +8,18 @@
         insert into jdbc_demo.person
         values (2, 'tom', 20, 1)
     </insert>
+    <update id="updatePerson">
+        update jdbc_demo.person set age = 10 where name = #{username}
+    </update>
     <select id="getPerson" resultType="POJO.Person">
         SELECT * FROM jdbc_demo.person where id = 1;
+    </select>
+    <select id="getPersonById" resultType="POJO.Person">
+# #{}的本质是占位符赋值  ${}的本质是字符串的拼接
+        select * from jdbc_demo.person where id = #{id}
+    </select>
+    <select id="checkLogin" resultType="POJO.Person">
+        select * from jdbc_demo.person where name = #{arg0} and sex = #{arg1}
     </select>
 
 </mapper>

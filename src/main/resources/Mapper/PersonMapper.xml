@@ -8,8 +8,44 @@
         insert into jdbc_demo.person
         values (2, 'tom', 20, 1)
     </insert>
+    <update id="updatePerson">
+        update jdbc_demo.person
+        set age = 10
+        where name = #{username}
+    </update>
     <select id="getPerson" resultType="POJO.Person">
-        SELECT * FROM jdbc_demo.person where id = 1;
+        SELECT *
+        FROM jdbc_demo.person
+        where id = 1;
     </select>
+    <select id="getPersonById" resultType="POJO.Person">
+        # #{}的本质是占位符赋值  ${}的本质是字符串的拼接
+        select *
+        from jdbc_demo.person
+        where id = #{id}
+    </select>
+    <select id="checkLogin" resultType="POJO.Person">
+        select *
+        from jdbc_demo.person
+        where name = #{arg0}
+          and sex = #{arg1}
+    </select>
+
+    <!--    sql返回的数据中，通过map进行映射，将返回的结果与type对应的类型进行关联            -->
+    <!--    <resultMap id="MapId" type="Person">                                   -->
+    <!--        <id property="属性名" column="查询结果中的列名"></id>                  -->
+    <!--        <result property="属性名" column="查询结果中的列名"></result>          -->
+    <!--        <result property="属性名.级联属性名" column="查询结果中的列名"></result> -->
+    <!--        <association property="属性名" javaType="属性类型">                   -->
+    <!--            <id property="属性名" column="查询结果中的列名"></id>               -->
+    <!--            <result property="属性名" column="查询结果中的列名"></result>       -->
+    <!--        </association>                                                     -->
+    <!--    </resultMap>-->
+
+    <!--    <select id="checkLogin" resultMap="MapId">-->
+    <!--        sql语句-->
+    <!--    </select>-->
+
+    <!--    当数据库中的字段名与属性名不一致的时候，通过在sql语句当中给查询字段起别名可以解决冲突-->
 
 </mapper>

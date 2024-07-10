@@ -1,6 +1,7 @@
 package Mapper;
 
 import POJO.Person;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @version 1.0
@@ -14,6 +15,11 @@ public interface PersonMapper {
 
     Person getPerson();
 
+    Person getPersonById(Integer id);
+
+    Person checkLogin(String username,Integer password);
+
+    Integer updatePerson(@Param("username") String username);
 
 
 }

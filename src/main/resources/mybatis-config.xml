@@ -4,10 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-    <properties resource="jdbc.properties">
+    <properties resource="jdbc.properties"/>
 
-    </properties>
-
+    <settings>
+        <setting name="" value=""/>
+    </settings>
+    
     <!--environment配置连接多个数据库的环境-->
     <!--  default配合id设置默认使用的环境  -->
     <environments default="development">
