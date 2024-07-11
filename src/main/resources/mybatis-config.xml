@@ -9,6 +9,14 @@
     <settings>
         <setting name="" value=""/>
     </settings>
+
+    <typeAliases>
+
+    </typeAliases>
+
+    <typeHandlers>
+
+    </typeHandlers>
     
     <!--environment配置连接多个数据库的环境-->
     <!--  default配合id设置默认使用的环境  -->
@@ -29,6 +37,8 @@
             </dataSource>
         </environment>
     </environments>
+
+
     <mappers>
 <!--        按照文件一个一个导入-->
 <!--        <mapper resource="Mapper/PersonMapper.xml"/>-->
